@@ -32,3 +32,60 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.line0 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 1;
+}
+
+.line4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#zero {
+    flex-grow: 2;
+}
+
+#point {
+    flex-grow: 1;
+}
+
+#equal {
+    flex-grow: 1;
+}
+
+#zero {
+    flex-grow: 1;
+}
+
+#one,
+#two,
+#three,
+#plus {
+    flex-grow: 1;
+}
+
+#four,
+#five,
+#six,
+#minus {
+    flex-grow: 1;
+}
+
+#seven,
+#eight,
+#nine,
+#multiplication {
+    flex-grow: 1;
+}
+
+#clear,
+#whatever,
+#remainder,
+#division {
+    flex-grow: 1;
+}
