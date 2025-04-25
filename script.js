@@ -1,10 +1,10 @@
-let first = 0;
+let first = "";
 let second = 0;
 let operator = "caca";
 
 let stock = "";
 let toAdd = "";
-let result = 0
+let result = "";
 
 const screenDisplay = document.querySelector("#display");
 const displayed = document.createElement("div");
@@ -30,17 +30,35 @@ function divide(a, b) {
     return a / b;
 }
 
-function operate(a, b) {
-return a + operator + b;
+function operate(first, second) {
+    if (operator === "+") {
+        result = first + second;
+        alert("Le résultat après addiion est de " + result +" !");
+        stock = stock / 1;
+        } else if (operator === "-") {
+            result = first - second;
+            alert("Le résultat après soustraction est de " + result +" !");
+        } else {
+            alert("I don't know what the fuck happened");    
+        }
+        result = result / 1;
+        updateScreenDisplay();
 }
 
 function updateScreenDisplay() {
+    if (typeof result === 'number') {
+        displayed.textContent = result;
+        displayed.style.color = "blue";
+    } else if (typeof result === 'string') {
 displayed.textContent = stock;
 displayed.style.color = "blue";
-}
+} else {
+    alert("Erreur dans updateScreenDisplay")
+} }
 
 const one = document.querySelector("#one");
 one.addEventListener("click", () => {
+    updateScreenDisplay();
     toAdd = "1";
     stock = stock + toAdd;
     toAdd = "";
@@ -59,36 +77,41 @@ two.addEventListener("click", () => {
 
 const plus = document.querySelector("#plus");
 plus.addEventListener("click", () => {
+    if (typeof first === 'number') {
+        stock = "";
+        updateScreenDisplay();
+        operator = "+";
+    } else {
     first = stock;
     first = first / 1;
     stock = "";
-    operator = "+"
+    operator = "+";
     updateScreenDisplay();
-})
+} } )
 
 const minus = document.querySelector("#minus");
 minus.addEventListener("click", () => {
+    if (typeof first === 'number') {
+        stock = "";
+        updateScreenDisplay();
+        operator = "-";
+    } else {
     first = stock;
     first = first / 1;
     stock = "";
-    operator = "-"
+    operator = "-";
     updateScreenDisplay();
-})
+} } )
 
 const equal = document.querySelector("#equal");
 equal.addEventListener("click", () => {
+    second = stock / 1;
     stock = stock / 1;
-    if (operator === "+") {
-        result = first + stock;
-        alert("Le résultat après addiion est de " + result +" !");
-        stock = stock / 1;
-        } else if (operator === "-") {
-            result = first - stock;
-            alert("Le résultat après soustraction est de " + result +" !");
-        } else {
-            alert("I don't know what the fuck happened");    
-        }
-        operator = "";
+operate(first, second);
+operator = "";
+first = result;
+second = ""
+result = "";
 })
 
 
