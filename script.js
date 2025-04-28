@@ -1,6 +1,9 @@
 let first = "";
 let second = 0;
-let operator = "caca";
+let operator = "none";
+
+currentlyCalc = false;
+operatorAlready = false;
 
 let stock = "";
 let toAdd = "";
@@ -58,11 +61,25 @@ displayed.style.color = "blue";
 
 const one = document.querySelector("#one");
 one.addEventListener("click", () => {
+    if (currentlyCalc === true) {
+        first = "";
+        second = "";
+        toAdd = "";
+        stock = "";
+        result = "";
+        operator = "";
+        currentlyCalc = false;
+        toAdd = "1";
+        stock = stock + toAdd;
+        toAdd = "";
+        updateScreenDisplay();
+    } else {
     updateScreenDisplay();
     toAdd = "1";
     stock = stock + toAdd;
     toAdd = "";
     updateScreenDisplay();
+}
 })
 
 const two = document.querySelector("#two");
@@ -77,10 +94,14 @@ two.addEventListener("click", () => {
 
 const plus = document.querySelector("#plus");
 plus.addEventListener("click", () => {
-    if (typeof first === 'number') {
+    if (currentlyCalc === true) {
         stock = "";
         updateScreenDisplay();
         operator = "+";
+        operatorAlready = true;
+        currentlyCalc = false;
+    } else if (operatorAlready === true) {
+
     } else {
     first = stock;
     first = first / 1;
@@ -91,7 +112,7 @@ plus.addEventListener("click", () => {
 
 const minus = document.querySelector("#minus");
 minus.addEventListener("click", () => {
-    if (typeof first === 'number') {
+    if (currentlyCalc === true) {
         stock = "";
         updateScreenDisplay();
         operator = "-";
@@ -112,6 +133,20 @@ operator = "";
 first = result;
 second = ""
 result = "";
+currentlyCalc = true;
+operatorAlready = false;
 })
 
-
+const clear = document.querySelector("#clear");
+clear.addEventListener("click", () => {
+    first = "";
+    second = "";
+    toAdd = "";
+    stock = "";
+    result = "";
+    operator = "";
+    currentlyCalc = false;
+    operatorAlready = false;
+    updateScreenDisplay();
+    alert("cleared !");
+})
