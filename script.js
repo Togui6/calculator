@@ -41,8 +41,17 @@ function operate(first, second) {
         } else if (operator === "-") {
             result = first - second;
             alert("Le résultat après soustraction est de " + result +" !");
-        } else {
-            alert("I don't know what the fuck happened");    
+        } else if (operator === "*") {
+            result = first * second;
+            alert("Le résultat après multiplication est de " + result +" !");
+        } else if (operator === "/") {
+            result = first / second;
+            alert("Le résultat après division est de " + result +" !");
+        } else if (operator === "%") {
+            result = first % second;
+            alert("Le restant après division est de " + result +" !");
+        } else {     
+            alert("Oups, erreur dans la fonction operate");    
         }
         result = result / 1;
         updateScreenDisplay();
@@ -58,6 +67,29 @@ displayed.style.color = "blue";
 } else {
     alert("Erreur dans updateScreenDisplay")
 } }
+
+const zero = document.querySelector("#zero");
+zero.addEventListener("click", () => {
+    if (currentlyCalc === true) {
+        first = "";
+        second = "";
+        toAdd = "";
+        stock = "";
+        result = "";
+        operator = "";
+        currentlyCalc = false;
+        toAdd = "0";
+        stock = stock + toAdd;
+        toAdd = "";
+        updateScreenDisplay();
+    } else {
+    updateScreenDisplay();
+    toAdd = "0";
+    stock = stock + toAdd;
+    toAdd = "";
+    updateScreenDisplay();
+}
+})
 
 const one = document.querySelector("#one");
 one.addEventListener("click", () => {
@@ -84,10 +116,186 @@ one.addEventListener("click", () => {
 
 const two = document.querySelector("#two");
 two.addEventListener("click", () => {
+    if (currentlyCalc === true) {
+        first = "";
+        second = "";
+        toAdd = "";
+        stock = "";
+        result = "";
+        operator = "";
+        currentlyCalc = false;
+        toAdd = "2";
+        stock = stock + toAdd;
+        toAdd = "";
+        updateScreenDisplay();
+    } else {
+    updateScreenDisplay();
     toAdd = "2";
     stock = stock + toAdd;
     toAdd = "";
     updateScreenDisplay();
+}
+})
+
+const three = document.querySelector("#three");
+three.addEventListener("click", () => {
+    if (currentlyCalc === true) {
+        first = "";
+        second = "";
+        toAdd = "";
+        stock = "";
+        result = "";
+        operator = "";
+        currentlyCalc = false;
+        toAdd = "3";
+        stock = stock + toAdd;
+        toAdd = "";
+        updateScreenDisplay();
+    } else {
+    updateScreenDisplay();
+    toAdd = "3";
+    stock = stock + toAdd;
+    toAdd = "";
+    updateScreenDisplay();
+}
+})
+
+const four = document.querySelector("#four");
+four.addEventListener("click", () => {
+    if (currentlyCalc === true) {
+        first = "";
+        second = "";
+        toAdd = "";
+        stock = "";
+        result = "";
+        operator = "";
+        currentlyCalc = false;
+        toAdd = "4";
+        stock = stock + toAdd;
+        toAdd = "";
+        updateScreenDisplay();
+    } else {
+    updateScreenDisplay();
+    toAdd = "4";
+    stock = stock + toAdd;
+    toAdd = "";
+    updateScreenDisplay();
+}
+})
+
+const five = document.querySelector("#five");
+five.addEventListener("click", () => {
+    if (currentlyCalc === true) {
+        first = "";
+        second = "";
+        toAdd = "";
+        stock = "";
+        result = "";
+        operator = "";
+        currentlyCalc = false;
+        toAdd = "5";
+        stock = stock + toAdd;
+        toAdd = "";
+        updateScreenDisplay();
+    } else {
+    updateScreenDisplay();
+    toAdd = "5";
+    stock = stock + toAdd;
+    toAdd = "";
+    updateScreenDisplay();
+}
+})
+
+const six = document.querySelector("#six");
+six.addEventListener("click", () => {
+    if (currentlyCalc === true) {
+        first = "";
+        second = "";
+        toAdd = "";
+        stock = "";
+        result = "";
+        operator = "";
+        currentlyCalc = false;
+        toAdd = "6";
+        stock = stock + toAdd;
+        toAdd = "";
+        updateScreenDisplay();
+    } else {
+    updateScreenDisplay();
+    toAdd = "6";
+    stock = stock + toAdd;
+    toAdd = "";
+    updateScreenDisplay();
+}
+})
+
+const seven = document.querySelector("#seven");
+seven.addEventListener("click", () => {
+    if (currentlyCalc === true) {
+        first = "";
+        second = "";
+        toAdd = "";
+        stock = "";
+        result = "";
+        operator = "";
+        currentlyCalc = false;
+        toAdd = "7";
+        stock = stock + toAdd;
+        toAdd = "";
+        updateScreenDisplay();
+    } else {
+    updateScreenDisplay();
+    toAdd = "7";
+    stock = stock + toAdd;
+    toAdd = "";
+    updateScreenDisplay();
+}
+})
+
+const eight = document.querySelector("#eight");
+eight.addEventListener("click", () => {
+    if (currentlyCalc === true) {
+        first = "";
+        second = "";
+        toAdd = "";
+        stock = "";
+        result = "";
+        operator = "";
+        currentlyCalc = false;
+        toAdd = "8";
+        stock = stock + toAdd;
+        toAdd = "";
+        updateScreenDisplay();
+    } else {
+    updateScreenDisplay();
+    toAdd = "8";
+    stock = stock + toAdd;
+    toAdd = "";
+    updateScreenDisplay();
+}
+})
+
+const nine = document.querySelector("#nine");
+nine.addEventListener("click", () => {
+    if (currentlyCalc === true) {
+        first = "";
+        second = "";
+        toAdd = "";
+        stock = "";
+        result = "";
+        operator = "";
+        currentlyCalc = false;
+        toAdd = "9";
+        stock = stock + toAdd;
+        toAdd = "";
+        updateScreenDisplay();
+    } else {
+    updateScreenDisplay();
+    toAdd = "9";
+    stock = stock + toAdd;
+    toAdd = "";
+    updateScreenDisplay();
+}
 })
 
 // Operateurs 
@@ -107,6 +315,7 @@ plus.addEventListener("click", () => {
     first = first / 1;
     stock = "";
     operator = "+";
+    operatorAlready = true;
     updateScreenDisplay();
 } } )
 
@@ -116,16 +325,81 @@ minus.addEventListener("click", () => {
         stock = "";
         updateScreenDisplay();
         operator = "-";
+        operatorAlready = true;
+        currentlyCalc = false;
+    } else if (operatorAlready === true) {
+
     } else {
     first = stock;
     first = first / 1;
     stock = "";
     operator = "-";
+    operatorAlready = true;
+    updateScreenDisplay();
+} } )
+
+const multiplication = document.querySelector("#multiplication");
+multiplication.addEventListener("click", () => {
+    if (currentlyCalc === true) {
+        stock = "";
+        updateScreenDisplay();
+        operator = "*";
+        operatorAlready = true;
+        currentlyCalc = false;
+    } else if (operatorAlready === true) {
+
+    } else {
+    first = stock;
+    first = first / 1;
+    stock = "";
+    operator = "*";
+    operatorAlready = true;
+    updateScreenDisplay();
+} } )
+
+const division = document.querySelector("#division");
+division.addEventListener("click", () => {
+    if (currentlyCalc === true) {
+        stock = "";
+        updateScreenDisplay();
+        operator = "/";
+        operatorAlready = true;
+        currentlyCalc = false;
+    } else if (operatorAlready === true) {
+
+    } else {
+    first = stock;
+    first = first / 1;
+    stock = "";
+    operator = "/";
+    operatorAlready = true;
+    updateScreenDisplay();
+} } )
+
+const remainder = document.querySelector("#remainder");
+remainder.addEventListener("click", () => {
+    if (currentlyCalc === true) {
+        stock = "";
+        updateScreenDisplay();
+        operator = "%";
+        operatorAlready = true;
+        currentlyCalc = false;
+    } else if (operatorAlready === true) {
+
+    } else {
+    first = stock;
+    first = first / 1;
+    stock = "";
+    operator = "%";
+    operatorAlready = true;
     updateScreenDisplay();
 } } )
 
 const equal = document.querySelector("#equal");
 equal.addEventListener("click", () => {
+    if (operatorAlready === false) {
+
+    } else {
     second = stock / 1;
     stock = stock / 1;
 operate(first, second);
@@ -135,7 +409,7 @@ second = ""
 result = "";
 currentlyCalc = true;
 operatorAlready = false;
-})
+}})
 
 const clear = document.querySelector("#clear");
 clear.addEventListener("click", () => {
@@ -149,4 +423,10 @@ clear.addEventListener("click", () => {
     operatorAlready = false;
     updateScreenDisplay();
     alert("cleared !");
+})
+
+const backspace = document.querySelector("#backspace");
+backspace.addEventListener("click", () => {
+    stock = stock.slice(0, -1);
+    updateScreenDisplay();
 })
