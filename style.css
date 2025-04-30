@@ -1,17 +1,26 @@
 #calculator {
     display: flex;
     width: 400px;
-    height: 600px;
+    height: 700px;
     border: solid;
+    border-radius: 10px;
     flex-direction: column;
-
+    background-color:rgb(0, 30, 95);
+    border-color: rgb(255, 247, 136);
 }
 
 #display {
     width: 300px;
     height: 100px;
     margin: 50px;
-    border: solid;
+    border-radius: 15px;
+    background-color: rgb(29, 70, 255);
+}
+
+button {
+    background-color: rgb(228, 228, 228);
+    font-size: 25px;
+    border-radius: 10px;
 }
 
 .line1 {
@@ -47,45 +56,48 @@
 }
 
 #zero {
-    flex-grow: 2;
+    height: 100px;
+    width: 200px;
 }
 
 #point {
-    flex-grow: 1;
+    height: 100px;
+    width: 100px;
 }
 
 #equal {
-    flex-grow: 1;
-}
-
-#zero {
-    flex-grow: 1;
+    height: 100px;
+    width: 100px;
 }
 
 #one,
 #two,
 #three,
 #plus {
-    flex-grow: 1;
+    height: 100px;
+    width: 100px;
 }
 
 #four,
 #five,
 #six,
 #minus {
-    flex-grow: 1;
+    height: 100px;
+    width: 100px;
 }
 
 #seven,
 #eight,
 #nine,
 #multiplication {
-    flex-grow: 1;
+    height: 100px;
+    width: 100px;
 }
 
 #clear,
 #backspace,
 #remainder,
 #division {
-    flex-grow: 1;
+    height: 100px;
+    width: 100px;
 }

@@ -4,6 +4,7 @@ let operator = "none";
 
 currentlyCalc = false;
 operatorAlready = false;
+decimalAlready = false;
 
 let stock = "";
 let toAdd = "";
@@ -12,9 +13,9 @@ let result = "";
 const screenDisplay = document.querySelector("#display");
 const displayed = document.createElement("div");
 displayed.textContent = stock;
-displayed.style.color = "blue";
+displayed.style.color = "white";
+displayed.style.fontSize = "30px";
 screenDisplay.appendChild(displayed);
-
 
 
 function add(a, b) {
@@ -36,20 +37,20 @@ function divide(a, b) {
 function operate(first, second) {
     if (operator === "+") {
         result = first + second;
-        alert("Le résultat après addiion est de " + result +" !");
+        result = result.toFixed(2);
         stock = stock / 1;
         } else if (operator === "-") {
             result = first - second;
-            alert("Le résultat après soustraction est de " + result +" !");
+            result = result.toFixed(2);
         } else if (operator === "*") {
             result = first * second;
-            alert("Le résultat après multiplication est de " + result +" !");
+            result = result.toFixed(2);
         } else if (operator === "/") {
             result = first / second;
-            alert("Le résultat après division est de " + result +" !");
+            result = result.toFixed(2);
         } else if (operator === "%") {
             result = first % second;
-            alert("Le restant après division est de " + result +" !");
+            result = result.toFixed(2);
         } else {     
             alert("Oups, erreur dans la fonction operate");    
         }
@@ -60,10 +61,10 @@ function operate(first, second) {
 function updateScreenDisplay() {
     if (typeof result === 'number') {
         displayed.textContent = result;
-        displayed.style.color = "blue";
+        displayed.style.color = "white";
     } else if (typeof result === 'string') {
 displayed.textContent = stock;
-displayed.style.color = "blue";
+displayed.style.color = "white";
 } else {
     alert("Erreur dans updateScreenDisplay")
 } }
@@ -308,6 +309,7 @@ plus.addEventListener("click", () => {
         operator = "+";
         operatorAlready = true;
         currentlyCalc = false;
+        decimalAlready = false;
     } else if (operatorAlready === true) {
 
     } else {
@@ -316,6 +318,7 @@ plus.addEventListener("click", () => {
     stock = "";
     operator = "+";
     operatorAlready = true;
+    decimalAlready = false;
     updateScreenDisplay();
 } } )
 
@@ -327,6 +330,7 @@ minus.addEventListener("click", () => {
         operator = "-";
         operatorAlready = true;
         currentlyCalc = false;
+        decimalAlready = false;
     } else if (operatorAlready === true) {
 
     } else {
@@ -335,6 +339,7 @@ minus.addEventListener("click", () => {
     stock = "";
     operator = "-";
     operatorAlready = true;
+    decimalAlready = false;
     updateScreenDisplay();
 } } )
 
@@ -346,6 +351,7 @@ multiplication.addEventListener("click", () => {
         operator = "*";
         operatorAlready = true;
         currentlyCalc = false;
+        decimalAlready = false;
     } else if (operatorAlready === true) {
 
     } else {
@@ -354,6 +360,7 @@ multiplication.addEventListener("click", () => {
     stock = "";
     operator = "*";
     operatorAlready = true;
+    decimalAlready = false;
     updateScreenDisplay();
 } } )
 
@@ -365,6 +372,7 @@ division.addEventListener("click", () => {
         operator = "/";
         operatorAlready = true;
         currentlyCalc = false;
+        decimalAlready = false;
     } else if (operatorAlready === true) {
 
     } else {
@@ -373,6 +381,7 @@ division.addEventListener("click", () => {
     stock = "";
     operator = "/";
     operatorAlready = true;
+    decimalAlready = false;
     updateScreenDisplay();
 } } )
 
@@ -384,6 +393,7 @@ remainder.addEventListener("click", () => {
         operator = "%";
         operatorAlready = true;
         currentlyCalc = false;
+        decimalAlready = false;
     } else if (operatorAlready === true) {
 
     } else {
@@ -392,6 +402,7 @@ remainder.addEventListener("click", () => {
     stock = "";
     operator = "%";
     operatorAlready = true;
+    decimalAlready = false;
     updateScreenDisplay();
 } } )
 
@@ -421,8 +432,8 @@ clear.addEventListener("click", () => {
     operator = "";
     currentlyCalc = false;
     operatorAlready = false;
+    decimalAlready = false;
     updateScreenDisplay();
-    alert("cleared !");
 })
 
 const backspace = document.querySelector("#backspace");
@@ -430,3 +441,20 @@ backspace.addEventListener("click", () => {
     stock = stock.slice(0, -1);
     updateScreenDisplay();
 })
+
+const point = document.querySelector("#point");
+point.addEventListener("click", () => {
+    if (stock === "") {
+
+    } else {
+        if (decimalAlready === true) {
+
+        } else {
+            toAdd = ".";
+            stock = stock + toAdd;
+            toAdd = "";
+            decimalAlready = true;
+            updateScreenDisplay();
+        }
+    }
+} )
